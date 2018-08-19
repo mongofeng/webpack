@@ -124,3 +124,8 @@ module.exports = {
 npm的start命令是一个特殊的脚本名称，其特殊性表现在，在命令行中使用npm start就可以执行其对于的命令，如果对应的此脚本名称不是start，想要在命令行中运行时，需要这样用npm run {script name}如npm run build
 
 现在只需要使用npm start就可以打包文件了
+
+## 参考文档
+
+- [webpack中文网](https://www.webpackjs.com/)
+- [webpack 入门，超详细](https://blog.csdn.net/bryblog/article/details/78060694)
