@@ -80,17 +80,36 @@ Webpack拥有很多其它的比较高级的功能（比如说本文后面会介�
 
 ```
 module.exports = {
-  entry:  __dirname + "/app/main.js",//已多次提及的唯一入口文件
+  entry:  __dirname + "/src/main.js",//已多次提及的唯一入口文件
   output: {
-    path: __dirname + "/public",//打包后的文件存放的地方
-    filename: "bundle.js"//打包后输出文件的文件名
+    path: __dirname + "/dist",//打包后的文件存放的地方
+    filename: "app.js"//打包后输出文件的文件名
   }
 }
+
 
 注：“__dirname”是node.js中的一个全局变量，它指向当前执行脚本所在的目录。
 ```
 
+```
+module.exports = {
+  // entry: __dirname + '/src/main.js',
+  entry: {
+    app: __dirname + '/src/main.js',
+    element: __dirname + '/src/element.js'
+  },
+
+  output: {
+    path: __dirname +  '/dist', // 打包后存放的文件夹
+    // filename: 'app.js' // 打包后的文件
+    filename: '[name].app.js' // 打包后的文件
+  }
+}
+```
+
 有了这个配置之后，再打包文件，只需在终端里运行webpack(非全局安装需使用node_modules/.bin/webpack)命令就可以了，这条命令会自动引用webpack.config.js文件中的配置选项
+
+> 如果 `webpack.config.js` 存在，则 `webpack` 命令将默认选择使用它。我们在这里使用 `--config` 选项只是向你表明，可以传递任何名称的配置文件。这对于需要拆分成多个文件的复杂配置是非常有用。
 
 
 
@@ -124,6 +143,89 @@ module.exports = {
 npm的start命令是一个特殊的脚本名称，其特殊性表现在，在命令行中使用npm start就可以执行其对于的命令，如果对应的此脚本名称不是start，想要在命令行中运行时，需要这样用npm run {script name}如npm run build
 
 现在只需要使用npm start就可以打包文件了
+
+
+
+**loader的配置**
+
+webpack 最出色的功能之一就是，除了 JavaScript，还可以通过 loader *引入任何其他类型的文件*。也就是说，以上列出的那些 JavaScript 的优点（例如显式依赖），同样可以用来构建网站或 web 应用程序中的所有非 JavaScript 内容。
+
+```
+npm install --save-dev style-loader css-loader
+```
+
+```
+module.exports = {
+  mode: 'production',
+  devtool: 'eval-source-map',
+  entry: __dirname + '/src/main.js',
+
+  output: {
+    path: __dirname +  '/dist', // 打包后存放的文件夹
+    filename: 'app.js' // 打包后的文件
+  },
+
+  module: {
+    rules: [{
+      test: /\.css$/,
+      use: [
+        'style-loader',
+        'css-loader'
+      ]
+    }]
+  }
+}
+```
+
+> webpack 根据正则表达式，来确定应该查找哪些文件，并将其提供给指定的 loader。在这种情况下，以 `.css` 结尾的全部文件，都将被提供给 `style-loader` 和 `css-loader`。
+
+
+
+**插件(plugins)**
+
+我们在 `index.html` 文件中手动引入所有资源，然而随着应用程序增长，手动地对 `index.html` 文件进行管理，一切就会变得困难起来。然而，可以通过一些插件，会使这个过程更容易操控
+
+```
+npm install --save-dev html-webpack-plugin
+```
+
+```
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+module.exports = {
+  mode: 'production',
+  devtool: 'eval-source-map',
+  // entry: __dirname + '/src/main.js',
+  entry: {
+    app: __dirname + '/src/main.js',
+    element: __dirname + '/src/element.js'
+  },
+
+  output: {
+    path: __dirname +  '/dist', // 打包后存放的文件夹
+    // filename: 'app.js' // 打包后的文件
+    filename: '[name].app.js' // 打包后的文件
+  },
+
+  module: {
+    rules: [{
+      test: /\.css$/,
+      use: [
+        'style-loader',
+        'css-loader'
+      ]
+    }]
+  },
+
+  plugins: [
+    new HtmlWebpackPlugin({
+      hash: true,
+      template:  __dirname + '/src/index.html'
+    })
+  ]
+}
+```
+
+
 
 ## 参考文档
 
