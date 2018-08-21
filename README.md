@@ -138,6 +138,9 @@ module.exports = {
 
 ```
 注：package.json中的script会安装一定顺序寻找命令对应位置，本地的node_modules/.bin路径就在这个寻找清单中，所以无论是全局还是局部安装的Webpack，你都不需要写前面那指明详细的路径了。
+
+
+通过向 npm run start 命令和你的参数之间添加两个中横线，可以将自定义参数传递给 webpack，例如：npm run start -- --colors。
 ```
 
 npm的start命令是一个特殊的脚本名称，其特殊性表现在，在命令行中使用npm start就可以执行其对于的命令，如果对应的此脚本名称不是start，想要在命令行中运行时，需要这样用npm run {script name}如npm run build
