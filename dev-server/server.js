@@ -8,7 +8,7 @@ const webpackConfig = require('./webpack.config');
 //     colors: true
 //   }
 // });
-console.log(webpackConfig.devServer)
+// console.log(webpackConfig.devServer)
 
 // 去除server的配置
 const devServerOptions = {
