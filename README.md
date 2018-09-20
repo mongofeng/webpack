@@ -230,6 +230,45 @@ module.exports = {
 
 
 
+## webpack-dev-server
+
+`webpack-dev-server` 为你提供了一个简单的 web 服务器，并且能够实时重新加载(live reloading)
+
+```
+  const path = require('path');
+  const HtmlWebpackPlugin = require('html-webpack-plugin');
+  const CleanWebpackPlugin = require('clean-webpack-plugin');
+
+  module.exports = {
+    entry: {
+      app: './src/index.js',
+      print: './src/print.js'
+    },
+    devtool: 'inline-source-map',
++   devServer: {
++     contentBase: './dist'
++   },
+    plugins: [
+      new CleanWebpackPlugin(['dist']),
+      new HtmlWebpackPlugin({
+        title: 'Development'
+      })
+    ],
+    output: {
+      filename: '[name].bundle.js',
+      path: path.resolve(__dirname, 'dist')
+    }
+  };
+  
+以上配置告知 webpack-dev-server，在 localhost:8080 下建立服务，将 dist 目录下的文件，作为可访问文件。
+让我们添加一个 script 脚本，可以直接运行开发服务器(dev server)：
+不会实际生产出文件的这个
+
+"start": "webpack-dev-server --open",
+```
+
+
+
 ## 参考文档
 
 - [webpack中文网](https://www.webpackjs.com/)
