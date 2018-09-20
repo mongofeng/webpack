@@ -4,7 +4,7 @@ const path = require('path');
 module.exports = {
   mode: 'development',
   devtool: 'eval-source-map',
-  entry: __dirname + '/src/main.js',
+  entry: path.resolve(__dirname, 'src/main.js'),
   // entry: {
   //   app: path.resolve(__dirname, 'src/main.js'),
   //   element: path.resolve(__dirname, 'src/element.js'),

@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
-    "watch": "webpack --watch"
+    "start-build": "webpack --config start/webpack.config.js",
+    "start-watch": "webpack --watch --config start/webpack.config.js"
   },
   "keywords": [],
   "author": "",
