@@ -7,6 +7,7 @@
     "start-build": "webpack --config start/webpack.config.js",
     "dev-build": "webpack --config dev-server/webpack.config.js",
     "dev-server": "webpack-dev-server --config dev-server/webpack.config.js --open",
+    "dev-node": "node dev-server/server.js",
     "start-watch": "webpack --watch --config start/webpack.config.js"
   },
   "keywords": [],

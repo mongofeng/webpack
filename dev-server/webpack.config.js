@@ -1,6 +1,7 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin'); // 生成index.html模板自动插入打包后的script
 const CleanWebpackPlugin = require('clean-webpack-plugin'); // 构建前清理 /dist 文件夹
+const webpack = require('webpack');
 module.exports = {
   mode: 'production',
   devtool: 'inline-source-map',
@@ -11,7 +12,8 @@ module.exports = {
   },
 
   devServer: {
-    contentBase: path.resolve(__dirname, 'dist')
+    contentBase: path.resolve(__dirname, 'dist'),
+    hot: true
   },
 
   performance: {
@@ -33,6 +35,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       hash: true,
       template:  path.resolve(__dirname, 'src/index.html')
-    })
+    }),
+    new webpack.HotModuleReplacementPlugin()
   ]
 }

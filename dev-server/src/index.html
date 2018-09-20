@@ -4,10 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>视频直播</title>
+  <link href="http://vjs.zencdn.net/5.5.3/video-js.css" rel="stylesheet">
+    <!-- If you'd like to support IE8 -->
+  <script src="http://vjs.zencdn.net/ie8/1.1.1/videojs-ie8.min.js"></script>
 </head>
 <body>
-  <div class="root"></div>
+    <div class="root"></div>
+    <video id="my-video" class="video-js vjs-default-skin vjs-big-play-centered " controls preload="auto" style="width:100vw;height: 50vw;" poster="" data-setup="{}">
+        <source src="rtmp://stream-test.xlink.cn/hls/0302120001" type="rtmp/flv">
+        <!-- <source src="rtmp://stream-test.xlink.cn/hls/183969769" type="rtmp/flv"> -->
+        <p class="vjs-no-js">播放视频需要启用 JavaScript，推荐使用支持HTML5的浏览器访问。 To view this video please enable JavaScript, and consider upgrading to a web browser that
+        </p>
+    </video>
+    <script src="http://vjs.zencdn.net/5.5.3/video.js"></script>
 
 </body>
 </html>
