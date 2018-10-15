@@ -1,6 +1,7 @@
 let root = document.createElement('div')
 
 console.log(process.env)
+console.log(process.env.NODE_ENV)
  if (process.env.NODE_ENV !== 'production') {
    console.log('Looks like we are in development mode!');
  }

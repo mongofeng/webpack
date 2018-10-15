@@ -28,3 +28,8 @@ module.exports = merge(common, {
 //      })
 //    ]
 //  });
+
+// CLI 替代选项
+// 以上描述也可以通过命令行实现。
+// 例如，--optimize-minimize 标记将在后台引用 UglifyJSPlugin。
+// 和以上描述的 DefinePlugin 实例相同，--define process.env.NODE_ENV="'production'" 也会做同样的事情。并且，webpack -p 将自动地调用上述这些标记，从而调用需要引入的插件。
