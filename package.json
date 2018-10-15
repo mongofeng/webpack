@@ -9,7 +9,9 @@
     "dev-server": "webpack-dev-server --config dev-server/webpack.config.js --open",
     "dev-node": "node dev-server/server.js",
     "start-watch": "webpack --watch --config start/webpack.config.js",
-    "tree": "webpack --config tree-shaking/webpack.config.js"
+    "tree": "webpack --config tree-shaking/webpack.config.js",
+    "production-build": "webpack --config production-build/webpack.prod.js",
+    "production-dev": "webpack-dev-server --config production-build/webpack.dev.js  --open"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +23,7 @@
     "style-loader": "^0.22.1",
     "webpack": "^4.16.5",
     "webpack-cli": "^3.1.0",
-    "webpack-dev-server": "^3.1.8"
+    "webpack-dev-server": "^3.1.8",
+    "webpack-merge": "^4.1.4"
   }
 }
