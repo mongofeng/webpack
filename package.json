@@ -11,6 +11,9 @@
     "start-watch": "webpack --watch --config start/webpack.config.js",
     "tree": "webpack --config tree-shaking/webpack.config.js",
     "production-build": "webpack --config production-build/webpack.prod.js",
+    "code-sparation": "webpack --config code-separation/webpack.config.js",
+    "code-sparation-base": "webpack --config code-separation/webpack.base.js",
+    "lazy": "webpack --config lazy/webpack.config.js",
     "production-dev": "webpack-dev-server --config production-build/webpack.dev.js  --open"
   },
   "keywords": [],
@@ -25,5 +28,8 @@
     "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.8",
     "webpack-merge": "^4.1.4"
+  },
+  "dependencies": {
+    "loadsh": "^0.0.3"
   }
 }
