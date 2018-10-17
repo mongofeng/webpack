@@ -14,7 +14,8 @@
     "code-sparation": "webpack --config code-separation/webpack.config.js",
     "code-sparation-base": "webpack --config code-separation/webpack.base.js",
     "lazy": "webpack --config lazy/webpack.config.js",
-    "production-dev": "webpack-dev-server --config production-build/webpack.dev.js  --open"
+    "production-dev": "webpack-dev-server --config production-build/webpack.dev.js  --open",
+    "cache": "webpack --config cache/webpack.config.js"
   },
   "keywords": [],
   "author": "",
