@@ -16,7 +16,7 @@ module.exports = {
     library: 'webpackNumbers',
     path: path.resolve(__dirname, "dist")
   },
-  externals: {
+  externals: { // 需要外部的loadsh
     lodash: {
       commonjs: 'lodash',
       commonjs2: 'lodash',
