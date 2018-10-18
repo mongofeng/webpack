@@ -16,7 +16,8 @@
     "lazy": "webpack --config lazy/webpack.config.js",
     "production-dev": "webpack-dev-server --config production-build/webpack.dev.js  --open",
     "cache": "webpack --config cache/webpack.config.js",
-    "library": "webpack --config library/webpack.config.js"
+    "library": "webpack --config library/webpack.config.js",
+    "shim": "webpack --config shimming/webpack.config.js"
   },
   "keywords": [],
   "author": "",
@@ -32,6 +33,8 @@
     "webpack-merge": "^4.1.4"
   },
   "dependencies": {
+    "exports-loader": "^0.7.0",
+    "imports-loader": "^0.8.0",
     "loadsh": "^0.0.3"
   }
 }
