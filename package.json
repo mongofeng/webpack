@@ -18,7 +18,9 @@
     "cache": "webpack --config cache/webpack.config.js",
     "library": "webpack --config library/webpack.config.js",
     "shim": "webpack --config shimming/webpack.config.js",
-    "polyfill": "webpack --config polyfill/webpack.config.js"
+    "polyfill": "webpack --config polyfill/webpack.config.js",
+    "pwa": "webpack --config pwa/webpack.config.js",
+    "ts": "webpack --config typescript/webpack.config.js"
   },
   "keywords": [],
   "author": "",
@@ -28,6 +30,8 @@
     "css-loader": "^1.0.0",
     "html-webpack-plugin": "^3.2.0",
     "style-loader": "^0.22.1",
+    "ts-loader": "^5.2.2",
+    "typescript": "^3.1.3",
     "webpack": "^4.16.5",
     "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.8",
@@ -38,6 +42,7 @@
     "exports-loader": "^0.7.0",
     "imports-loader": "^0.8.0",
     "loadsh": "^0.0.3",
-    "whatwg-fetch": "^3.0.0"
+    "whatwg-fetch": "^3.0.0",
+    "workbox-webpack-plugin": "^3.6.2"
   }
 }
