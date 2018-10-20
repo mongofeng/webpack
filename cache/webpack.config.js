@@ -13,7 +13,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: "Caching"
     }),
-    new webpack.HashedModuleIdsPlugin()
+    new webpack.HashedModuleIdsPlugin() // 保存依赖资源的步变
   ],
   output: {
     filename: "[name].[chunkhash].js",
