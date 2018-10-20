@@ -17,6 +17,26 @@ module.exports = env => {
   console.log('Production: ', env.production); // true
   console.log(env)
 
+  let plugins = [
+    new CleanWebpackPlugin([path.resolve(__dirname, "dist")]),
+    new HTMLWebpackPlugin({
+      title: "Code Splitting",
+      hash: true
+    })
+    
+  ]
+
+  
+  let keys = Object.keys(env)
+  if (keys.length) {
+    let object = {}
+    keys.forEach(key => {
+      object[`process.env.${key}`] = JSON.stringify(env[key])
+    })
+    console.log(object)
+    plugins.push(new webpack.DefinePlugin(object))
+  }
+
   return {
     // mode: 'development',
     entry: path.resolve(__dirname, 'src/index.js'),
@@ -24,16 +44,6 @@ module.exports = env => {
       filename: 'bundle.js',
       path: path.resolve(__dirname, 'dist')
     },
-    plugins: [
-      new CleanWebpackPlugin([path.resolve(__dirname, "dist")]),
-      new HTMLWebpackPlugin({
-        title: "Code Splitting",
-        hash: true
-      }),
-      new webpack.DefinePlugin({
-        'process.env.NODE_ENV': JSON.stringify(env.NODE_ENV),
-        'process.env.production': JSON.stringify(env.production)
-      })
-    ]
+    plugins 
   };
 };
