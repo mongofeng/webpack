@@ -22,6 +22,7 @@
     "pwa": "webpack --config pwa/webpack.config.js",
     "ts": "webpack --config typescript/webpack.config.js",
     "DependencyManagement": "webpack --config DependencyManagement/webpack.config.js",
+    "PublicPath": "set ASSET_PATH=/app && webpack --config PublicPath/webpack.config.js",
     "environment": "webpack --config environment-variables/webpack.config.js --env.NODE_ENV=local --env.production --progress"
   },
   "keywords": [],
