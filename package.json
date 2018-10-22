@@ -21,6 +21,7 @@
     "polyfill": "webpack --config polyfill/webpack.config.js",
     "pwa": "webpack --config pwa/webpack.config.js",
     "ts": "webpack --config typescript/webpack.config.js",
+    "DependencyManagement": "webpack --config DependencyManagement/webpack.config.js",
     "environment": "webpack --config environment-variables/webpack.config.js --env.NODE_ENV=local --env.production --progress"
   },
   "keywords": [],
